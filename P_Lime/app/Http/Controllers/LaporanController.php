@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Laporan;
 
 class LaporanController extends Controller
 {
@@ -11,7 +12,8 @@ class LaporanController extends Controller
      */
     public function view()
     {
-        return view('laporan.view');
+        $laporans = Laporan::all();
+        return view('laporan.view', compact('laporans'));
         
     }
 
@@ -36,7 +38,26 @@ class LaporanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'judul' => 'required|max:255',
+            'deskripsi' => 'required',
+            'kategori' => 'required',
+            'lampiran' => 'nullable|file|max:2048',
+        ]);
+
+        $laporan = new Laporan();
+        $laporan->judul = $validatedData['judul'];
+        $laporan->deskripsi = $validatedData['deskripsi'];
+        $laporan->kategori = $validatedData['kategori'];
+
+        if ($request->hasFile('lampiran')) {
+            $filePath = $request->file('lampiran')->store('lampiran-laporan', 'public');
+            $laporan->lampiran = $filePath;
+        }
+
+        $laporan->save();
+
+        return redirect()->route('laporan.view')->with('success', 'Laporan created successfully.');
     }
 
     /**
@@ -67,6 +88,11 @@ class LaporanController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
+    {
+        //
+    }
+
+    public function index()
     {
         //
     }

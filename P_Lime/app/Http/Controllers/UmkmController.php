@@ -10,4 +10,9 @@ class UmkmController extends Controller
     {
         return view('umkm.register');
     }
+
+    public function peserta()
+    {
+        return view('umkm.peserta');
+    }
 }

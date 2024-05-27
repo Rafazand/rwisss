@@ -46,6 +46,9 @@
                         <a href="{{ route('umkm.register') }}" class="{{ Request::routeIs('umkm.register') ? 'active' : '' }}">UMKM Register</a>
                     </li>
                     <li>
+                        <a href="{{ route('umkm.peserta') }}" class="{{ Request::routeIs('umkm.peserta') ? 'active' : '' }}">Peserta UMKM</a>
+                    </li>
+                    <li>
                         <a href="{{ route('acara.manage') }}" class="{{ Request::routeIs('acara.manage') ? 'active' : '' }}">Manage</a>
                     </li>
                     <li>

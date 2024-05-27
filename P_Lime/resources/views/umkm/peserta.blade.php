@@ -18,8 +18,6 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="{{ asset('lime/theme/assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
         <link href="{{ asset('lime/theme/assets/plugins/font-awesome/css/all.min.css')}}" rel="stylesheet">
-        <link href="{{ asset('lime/theme/assets/plugins/font-awesome/css/track.css')}}" rel="stylesheet">
-        
 
         <link href="{{ asset('lime/theme/assets/plugins/plupload/js/jquery.plupload.queue/css/jquery.plupload.queue.css')}}" rel="stylesheet">  
 
@@ -41,40 +39,48 @@
         
         @include('layouts.header')
 
-        
-
-        <div class="row">
-            <div class="col-xl">
+        <div class="lime-container">
+            <div class="lime-body">
                 <div class="container">
-                    <h1>Laporan</h1>
-                    @if (session('success'))
-                        <div class="alert alert-success">
-                            {{ session('success') }}
-                        </div>
-                    @endif
-
-                    <a href="{{ route('laporan.create') }}" class="btn btn-primary mb-3">Create Laporan</a>
-
                     <div class="row">
-                        @foreach ($laporans as $laporan)
-                            <div class="col-md-4">
-                                <div class="card mb-3">
-                                    @if ($laporan->lampiran)
-                                        <img src="{{ asset('storage/' . $laporan->lampiran) }}" class="card-img-top" alt="{{ $laporan->judul }}">
-                                    @endif
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ $laporan->judul }}</h5>
-                                        <p class="card-text">{{ $laporan->deskripsi }}</p>
-                                        <p class="card-text"><small class="text-muted">{{ $laporan->kategori }}</small></p>
+                        <div class="col-md-12">
+                            <div class="page-title">
+                                <nav aria-label="breadcrumb">
+                                  <ol class="breadcrumb breadcrumb-separator-1">
+                                    <li class="breadcrumb-item"><a href="#">Laporan</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Buat Laporan</li>
+                                  </ol>
+                                </nav>
+                                <h3>Peserta UMKM</h3>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-xl">
+                                            <div class="card">
+                                                <div class="card-body" >
+                                                    <form>
+                                                        <div class="card-body">
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-
+                </div>        
+            </div>        
+            
+        
+        
         <!-- Javascripts -->
         <script src="{{ asset('lime/theme/assets/plugins/jquery/jquery-3.1.0.min.js')}}"></script>
         <script src="{{ asset('lime/theme/assets/plugins/bootstrap/popper.min.js')}}"></script>

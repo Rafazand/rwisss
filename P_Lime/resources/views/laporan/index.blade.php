@@ -35,16 +35,14 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
-    <body>
-        
-        @include('layouts.sidebar')
-        
+    <body>        
         @include('layouts.header')
 
         
 
         <div class="row">
             <div class="col-xl">
+                @section('content')
                 <div class="container">
                     <h1>Laporan</h1>
                     @if (session('success'))
@@ -72,9 +70,9 @@
                         @endforeach
                     </div>
                 </div>
+                @endsection
             </div>
         </div>
-
         <!-- Javascripts -->
         <script src="{{ asset('lime/theme/assets/plugins/jquery/jquery-3.1.0.min.js')}}"></script>
         <script src="{{ asset('lime/theme/assets/plugins/bootstrap/popper.min.js')}}"></script>

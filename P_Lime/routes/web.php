@@ -64,6 +64,7 @@ route::delete('/Acara/delete_acara/{id}', [AcaraController::class, 'delete_acara
 
 // UMKM
 route::get('/umkm/register', [UmkmController::class, 'register'])->name('umkm.register');
+route::get('/umkm/peserta', [UmkmController::class, 'peserta'])->name('umkm.peserta');
 
 // Read Citizen
 route::get('/citizen', [CitizenController::class, 'index'])->name('citizen.index');
@@ -114,6 +115,7 @@ route::delete('/citizen/delete_rumah/{id}', [CitizenController::class, 'delete_r
 route::get('/laporan/view', [LaporanController::class, 'view'])->name('laporan.view');
 route::get('/laporan/create', [LaporanController::class, 'create'])->name('laporan.create');
 route::get('/laporan/track', [LaporanController::class, 'track'])->name('laporan.track');
+Route::post('/laporan', [LaporanController::class, 'store'])->name('laporan.store');
 
 
 // Bansos
